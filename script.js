@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 users[username] = {
                     password: password,
-                    dollarBalance: 100.00, // Starting balance for new users
+                    dollarBalance: 10.00, // Starting balance for new users
                     nairaBalance: 0.00,
                     accountNumber: generateAccountNumber(),
                     predictions: {} // To store user predictions: {matchId: predictedWinner}
@@ -259,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function getExchangeRate() {
         return new Promise(resolve => {
             setTimeout(() => {
-                resolve(Math.random() * (1200 - 800) + 800); // Rate between 800 and 1200
+                resolve(Math.random() * (1500 - 800) + 800); // Rate between 800 and 1500
             }, 500);
         });
     }
@@ -666,4 +666,5 @@ document.addEventListener('DOMContentLoaded', () => {
         playMatchBtn.disabled = true;
     }
 });
+
 
