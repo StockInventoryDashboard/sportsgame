@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 users[username] = {
                     password: password,
-                    dollarBalance: 100.00, // Starting balance for new users
+                    dollarBalance: 10.00, // Starting balance for new users
                     nairaBalance: 0.00,
                     accountNumber: generateAccountNumber(),
                     predictions: {} // To store user predictions: {matchId: predictedWinner}
@@ -666,3 +666,4 @@ document.addEventListener('DOMContentLoaded', () => {
         playMatchBtn.disabled = true;
     }
 });
+
