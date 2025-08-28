@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football League Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Football League Dashboard</h1>
+
+        <div class="account-info-section">
+            <h2>Your Account</h2>
+            <p>Welcome, <span id="usernameDisplay">Guest</span>!</p>
+            <p>Dollar Balance: $<span id="dollarBalance">10.00</span></p>
+            <p>Naira Balance: ₦<span id="nairaBalance">0.00</span></p>
+            <p>Account Number: <span id="accountNumber">*****</span></p>
+            <button id="signupLoginBtn">Sign Up / Login</button>
+            <button id="transferToNairaBtn" disabled>Transfer to Naira</button>
+            <button id="withdrawBtn" disabled>Withdraw Funds</button>
+        </div>
+
+        <div class="league-selection-section">
+            <h2>Select League</h2>
+            <button id="selectPremierLeague">English Premier League</button>
+            <button id="selectLaLiga">Spanish La Liga</button>
+            <p id="selectedLeagueDisplay">No league selected.</p>
+        </div>
+
+        <div class="game-controls">
+            <h2>Game Controls</h2>
+            <button id="playMatchBtn" disabled>Play Next Match Round</button>
+            <p id="matchCountdown">Next match in: --s</p>
+            <p id="currentMatchRound">Match Round: 0 / 38</p>
+        </div>
+
+        <div class="prediction-section">
+            <h2>Make a Prediction</h2>
+            <p>Select a match from below to predict the winner.</p>
+            <div id="upcomingMatchesForPrediction">
+                <!-- Upcoming matches will be dynamically loaded here for prediction -->
+                No matches to predict yet.
+            </div>
+            <p id="predictionMessage"></p>
+        </div>
+
+        <div class="league-table-section">
+            <h2>League Table</h2>
+            <table id="leagueTable">
+                <thead>
+                    <tr>
+                        <th>Pos</th>
+                        <th>Club</th>
+                        <th>P</th>
+                        <th>W</th>
+                        <th>D</th>
+                        <th>L</th>
+                        <th>GF</th>
+                        <th>GA</th>
+                        <th>GD</th>
+                        <th>Pts</th>
+                    </tr>
+                </thead>
+                <tbody id="leagueTableBody">
+                    <!-- Table rows will be dynamically inserted here by JavaScript -->
+                    <tr><td colspan="10">Select a league to see the table.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="match-results-section">
+            <h2>Latest Match Results</h2>
+            <ul id="matchResultsList">
+                <!-- Match results will be dynamically added here -->
+            </ul>
+        </div>
+
+        <!-- Modals for Sign Up/Login, Transfer, Withdraw -->
+        <div id="signupLoginModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>Sign Up / Login</h2>
+                <form id="authForm">
+                    <label for="regUsername">Username:</label>
+                    <input type="text" id="regUsername" required><br>
+                    <label for="regPassword">Password:</label>
+                    <input type="password" id="regPassword" required><br>
+                    <button type="submit" id="registerBtn">Register</button>
+                    <button type="button" id="loginBtn">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="transferModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>Transfer Dollar to Naira</h2>
+                <label for="transferAmount">Amount ($):</label>
+                <input type="number" id="transferAmount" min="1" step="0.01" required><br>
+                <p>Current Rate: 1 USD = ₦<span id="nairaRate">XXX</span></p>
+                <button id="confirmTransferBtn">Transfer</button>
+            </div>
+        </div>
+
+        <div id="withdrawModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>Withdraw Funds</h2>
+                <label for="withdrawAmount">Amount (₦):</label>
+                <input type="number" id="withdrawAmount" min="25000" step="1" required><br>
+                <label for="bankName">Bank Name:</label>
+                <input type="text" id="bankName" required><br>
+                <label for="bankAccountNum">Bank Account Number:</label>
+                <input type="text" id="bankAccountNum" required><br>
+                <button id="confirmWithdrawBtn">Withdraw</button>
+            </div>
+        </div>
+        <footer>Powered by Charley Tech Hub Aba | 09068420849</footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

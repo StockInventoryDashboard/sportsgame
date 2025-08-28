@@ -1,0 +1,329 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+h1 {
+    grid-column: 1 / -1; /* Spans across all columns */
+    text-align: center;
+    color: #0056b3;
+    margin-bottom: 25px;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: #0056b3;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+section, .account-info-section, .league-selection-section, .game-controls, .prediction-section,
+.league-table-section, .match-results-section {
+    background-color: #fdfdfd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.account-info-section, .league-selection-section, .game-controls, .prediction-section {
+    grid-column: span 1; /* These will take up one column each */
+}
+
+.league-table-section {
+    grid-column: 1 / -1; /* League table spans full width */
+}
+
+.match-results-section {
+    grid-column: 1 / -1; /* Match results span full width */
+}
+
+
+p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Specific button styling */
+#transferToNairaBtn, #withdrawBtn {
+    background-color: #28a745;
+}
+#transferToNairaBtn:hover:not(:disabled), #withdrawBtn:hover:not(:disabled) {
+    background-color: #218838;
+}
+
+#playMatchBtn {
+    background-color: #ffc107;
+    color: #333;
+}
+#playMatchBtn:hover:not(:disabled) {
+    background-color: #e0a800;
+}
+
+#selectPremierLeague, #selectLaLiga {
+    background-color: #17a2b8;
+}
+#selectPremierLeague:hover:not(:disabled), #selectLaLiga:hover:not(:disabled) {
+    background-color: #138496;
+}
+
+
+/* League Table */
+#leagueTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+#leagueTable th, #leagueTable td {
+    border: 1px solid #ddd;
+    padding: 12px 8px;
+    text-align: left;
+}
+
+#leagueTable th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+#leagueTable tbody tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+#leagueTable tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Match Results */
+#matchResultsList {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+#matchResultsList li {
+    background-color: #e9f5ff;
+    border: 1px solid #cce5ff;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95em;
+}
+
+#matchResultsList li strong {
+    color: #0056b3;
+}
+
+/* Prediction Section */
+.prediction-match-item {
+    background-color: #f0f8ff;
+    border: 1px solid #cce5ff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    width: 300px;
+}
+
+.prediction-match-item button {
+    margin-left: 10px;
+    margin-right: 0;
+    margin-bottom: 5px; /* Adjust for wrap */
+}
+
+#predictionMessage {
+    font-weight: bold;
+    color: #dc3545; /* Red for errors/alerts */
+    margin-top: 15px;
+}
+
+/* Modals */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-content label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="password"],
+.modal-content input[type="number"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.modal-content button {
+    width: auto;
+    align-self: flex-end; /* Align buttons to the right */
+    margin-top: 10px;
+    margin-right: 0;
+}
+
+#authForm button {
+    width: 48%; /* Adjust for two buttons in a row */
+    align-self: center;
+}
+
+#authForm #registerBtn {
+    background-color: #007bff;
+}
+
+#authForm #loginBtn {
+    background-color: #6c757d;
+}
+#authForm #loginBtn:hover {
+    background-color: #5a6268;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Single column layout for smaller screens */
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .prediction-match-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .prediction-match-item button {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+
+    #authForm button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
