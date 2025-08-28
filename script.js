@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let leagueData = {}; // Stores all league data (teams, schedule, table)
     let currentMatchRound = 0;
     let matchesPerRound = 10; // Assuming 20 teams, 10 matches per round
-    const PREDICTION_BET_AMOUNT = 1.00; // $3.00 per prediction
+    const PREDICTION_BET_AMOUNT = 1.00; // $1.00 per prediction
     const PREDICTION_WIN_AMOUNT = 1.50; // Win $1.50 if correct
 
     // Helper to open a modal
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 users[username] = {
                     password: password,
-                    dollarBalance: 10.00, // Starting balance for new users
+                    dollarBalance: 100.00, // Starting balance for new users
                     nairaBalance: 0.00,
                     accountNumber: generateAccountNumber(),
                     predictions: {} // To store user predictions: {matchId: predictedWinner}
@@ -259,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function getExchangeRate() {
         return new Promise(resolve => {
             setTimeout(() => {
-                resolve(Math.random() * (1500 - 800) + 800); // Rate between 800 and 1500
+                resolve(Math.random() * (1200 - 800) + 800); // Rate between 800 and 1200
             }, 500);
         });
     }
@@ -666,6 +666,3 @@ document.addEventListener('DOMContentLoaded', () => {
         playMatchBtn.disabled = true;
     }
 });
-
-
-
