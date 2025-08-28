@@ -50,8 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let leagueData = {}; // Stores all league data (teams, schedule, table)
     let currentMatchRound = 0;
     let matchesPerRound = 10; // Assuming 20 teams, 10 matches per round
-    const PREDICTION_BET_AMOUNT = 1.00; // $1.00 per prediction
-    const PREDICTION_WIN_AMOUNT = 1.50; // Win $1.50 if correct
+    const PREDICTION_BET_AMOUNT = 3.00; // $3.00 per prediction
+    const PREDICTION_WIN_AMOUNT = 3.50; // Win $1.50 if correct
 
     // Helper to open a modal
     function openModal(modal) {
@@ -666,3 +666,4 @@ document.addEventListener('DOMContentLoaded', () => {
         playMatchBtn.disabled = true;
     }
 });
+
